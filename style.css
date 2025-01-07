@@ -1071,11 +1071,10 @@ section {
   .contact-links ul {
     position: absolute;
     bottom: 0;
-    right:155px;
+    right:150px;
     margin-bottom: 350px;
-   
-
   }
+
 }
 
 /* Adding a media query to improve the layout for smaller devices */
@@ -1212,8 +1211,8 @@ section {
     bottom: 0;
     right:140px;
     margin-bottom: 370px;
-
   }
+
   }
 
 @media screen and (max-width: 360px){
@@ -1343,3 +1342,17 @@ section {
   opacity: 1; /* Fully visible initially */
   transition: opacity 0.7s ease, top 0.7s ease;
 }}
+
+
+@media (max-width: 360px) {
+  .contact-links li {
+    font-size: 5vw;
+  }
+}
+
+@media (max-width: 416px) {
+  .contact-links li {
+   font-size: 5vw;
+}
+}
+
