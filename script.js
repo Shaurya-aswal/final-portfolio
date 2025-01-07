@@ -3,53 +3,45 @@
 //     smooth: true
 // });
 
-
-  function loaderAnimation() {
-    var loader = document.querySelector(".loader")
-    setTimeout(function () {
-        loader.style.top = "-100%"
-    }, 4200)
+function loaderAnimation() {
+  var loader = document.querySelector(".loader");
+  setTimeout(function () {
+    loader.style.top = "-100%";
+  }, 4200);
 }
 
 var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 3,
-    spaceBetween: 30,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-  });
-  
+  slidesPerView: 3,
+  spaceBetween: 30,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
 
+loaderAnimation();
 
-  loaderAnimation()
+function initSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute("href");
+      const targetElement = document.querySelector(targetId);
 
-  function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
         });
+      }
     });
-}
-   
-
-
-    document.addEventListener('DOMContentLoaded', function() {
-      // Your code here
-      initSmoothScroll();
   });
+}
 
-
-
+document.addEventListener("DOMContentLoaded", function () {
+  // Your code here
+  initSmoothScroll();
+});
 
 // cursor
 
@@ -78,7 +70,7 @@ const colors = [
   "#680060",
   "#60005f",
   "#48005f",
-  "#3d005e"
+  "#3d005e",
 ];
 
 circles.forEach(function (circle, index) {
@@ -87,23 +79,21 @@ circles.forEach(function (circle, index) {
   circle.style.backgroundColor = colors[index % colors.length];
 });
 
-window.addEventListener("mousemove", function(e){
+window.addEventListener("mousemove", function (e) {
   coords.x = e.clientX;
   coords.y = e.clientY;
-  
 });
 
 function animateCircles() {
-  
   let x = coords.x;
   let y = coords.y;
-  
+
   circles.forEach(function (circle, index) {
     circle.style.left = x - 12 + "px";
     circle.style.top = y - 12 + "px";
-    
+
     circle.style.scale = (circles.length - index) / circles.length;
-    
+
     circle.x = x;
     circle.y = y;
 
@@ -111,39 +101,70 @@ function animateCircles() {
     x += (nextCircle.x - x) * 0.3;
     y += (nextCircle.y - y) * 0.3;
   });
- 
+
   requestAnimationFrame(animateCircles);
 }
 
 animateCircles();
 
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburger = document.querySelector(".hamburger");
+  const navBtns = document.querySelector(".nav-btns");
 
-document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.querySelector('.hamburger');
-    const navBtns = document.querySelector('.nav-btns');
-  
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navBtns.classList.toggle('active');
-    });
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navBtns.classList.toggle("active");
   });
-  
-  var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 1,
-    spaceBetween: 20,
-    breakpoints: {
-      768: {
-        slidesPerView: 2,
-        spaceBetween: 30,
-      },
-      1024: {
-        slidesPerView: 3,
-        spaceBetween: 40,
-      }
+});
+
+var swiper = new Swiper(".mySwiper", {
+  slidesPerView: 1,
+  spaceBetween: 20,
+  breakpoints: {
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 30,
     },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 40,
     },
-  });
-  
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
+
+var swiper = new Swiper(".mySwiper", {
+  slidesPerView: 1,
+  spaceBetween: 30,
+  loop: true,
+  speed: 800, // Increase speed for smoother animations
+  autoplay: {
+    delay: 1000,
+    disableOnInteraction: false,
+  },
+  effect: "coverflow", // Use a 3D coverflow effect
+  coverflowEffect: {
+    rotate: 50,
+    stretch: 0,
+    depth: 100,
+    modifier: 1,
+    slideShadows: true,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  breakpoints: {
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 30,
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 40,
+    },
+  },
+});
