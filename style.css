@@ -627,7 +627,6 @@ h5 {
 .contact-links li {
   display: inline-block;
   font-size: 2vw;
-  /* gap: 70px; */
 }
 
 .contact-links a {
@@ -1139,11 +1138,20 @@ section {
     position: absolute;
     bottom: 0;
     right:245px;
-    margin-bottom: 320px;
+    margin-bottom: 300px;
+
+  }
+
+  .contact-links li {
+    font-size: 4vw;
+  }
+
+
+    
    
 
   }
-}
+
 @media screen and (max-width: 550px){
   .image img  {
     max-width: 80%;
@@ -1204,7 +1212,7 @@ section {
 }
 @media screen and (max-width: 350px){
   .image img {
-    max-width: 60%;
+    max-width: 40%;
   }
 
   .page3 h1 {
@@ -1278,6 +1286,16 @@ section {
     width: 40px;
     height: 40px;
   }
+
+  .contact-links li {
+    font-size: 4vw;
+  }
+
+  .contact-links ul {
+    position: absolute;
+    bottom: 0;
+    right:140px;
+    margin-bottom: 340px;
 }
 
 @media (max-width: 480px) {
@@ -1288,4 +1306,32 @@ section {
     width: 30px;
     height: 30px;
   }
+
+  .contact-links li {
+    font-size: 4vw;
+  }
+
+
 }
+
+#full-scr {
+  height: 100vh;
+  width: 100%;
+  background-color: transparent; /* Ensure transparency */
+  position: fixed;
+  z-index: 99;
+  top: -100%;
+  transition: all ease 0.5s;
+}
+
+.loader {
+  height: 100%;
+  width: 100%;
+  background-color: #000; /* Black background during load */
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  opacity: 1; /* Fully visible initially */
+  transition: opacity 0.7s ease, top 0.7s ease;
+}
+

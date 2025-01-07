@@ -168,3 +168,18 @@ var swiper = new Swiper(".mySwiper", {
     },
   },
 });
+
+document.getElementById('full-scr').style.top = '-100%'; // Ensure it's hidden
+
+function loaderAnimation() {
+  var loader = document.querySelector(".loader");
+  setTimeout(function () {
+    loader.style.opacity = "0"; // Gradual fade-out
+    loader.style.pointerEvents = "none"; // Disable interactions
+    setTimeout(() => (loader.style.display = "none"), 1000); // Hide after fade-out
+  }, 4200); // Matches your current delay
+}
+
+loaderAnimation();
+
+
