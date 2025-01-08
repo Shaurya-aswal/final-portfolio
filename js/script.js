@@ -183,3 +183,74 @@ function loaderAnimation() {
 loaderAnimation();
 
 
+document.addEventListener("DOMContentLoaded", function () {
+  const projects = document.querySelectorAll(".project");
+  const hoverImage = document.createElement("div");
+  hoverImage.classList.add("hover-image");
+  document.body.appendChild(hoverImage);
+
+  let activeProject = null;
+
+  // Function to check if the device is a tablet or phone
+  function isMobileOrTablet() {
+    return window.innerWidth <= 1024; // Adjust breakpoint as needed
+  }
+
+  // Track cursor position (for desktop only)
+  if (!isMobileOrTablet()) {
+    document.addEventListener("mousemove", function (e) {
+      if (activeProject) {
+        const x = e.clientX;
+        const y = e.clientY;
+        hoverImage.style.left = `${x}px`;
+        hoverImage.style.top = `${y}px`;
+      }
+    });
+  }
+
+  // Handle project clicks
+  projects.forEach((project) => {
+    project.addEventListener("click", function (e) {
+      // Remove active class from all other projects
+      projects.forEach((p) => p.classList.remove("active"));
+
+      // Add active class to the clicked project
+      this.classList.add("active");
+      activeProject = this;
+
+      // Set hover image background (for desktop only)
+      if (!isMobileOrTablet()) {
+        const imageUrl = this.querySelector(".project-image").getAttribute("src");
+        hoverImage.style.backgroundImage = `url(${imageUrl})`;
+
+        // Position hover image at cursor location
+        const x = e.clientX;
+        const y = e.clientY;
+        hoverImage.style.left = `${x}px`;
+        hoverImage.style.top = `${y}px`;
+        hoverImage.style.opacity = "1";
+        hoverImage.style.transform = "translate(-50%, -50%) scale(1)";
+      }
+
+      // Open GitHub repository (for tablets and phones only)
+      if (isMobileOrTablet()) {
+        const githubUrl = this.getAttribute("data-github-url");
+        if (githubUrl) {
+          window.open(githubUrl, "_blank");
+        }
+      }
+    });
+  });
+
+  // Close hover image when clicking outside (for desktop only)
+  if (!isMobileOrTablet()) {
+    document.addEventListener("click", function (e) {
+      if (!e.target.closest(".project")) {
+        projects.forEach((p) => p.classList.remove("active"));
+        hoverImage.style.opacity = "0";
+        hoverImage.style.transform = "translate(-50%, -50%) scale(0.8)";
+        activeProject = null;
+      }
+    });
+  }
+});

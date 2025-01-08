@@ -38,12 +38,12 @@ body {
   background-color: #efeae3;
   position: relative;
   padding: 0 2vw;
+
 }
 
 .navbar {
   padding: 1vw 3vw;
   width: 100%;
-  /* background-color: #EFEAE3; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -104,7 +104,6 @@ body {
 .center {
   height: 65vh;
   width: 100%;
-  /* background-color: orange; */
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -215,10 +214,6 @@ span {
 h5 {
   font-size: 7vw;
   text-align: center;
-  /* background:linear-gradient(red,orange);
-    color: transparent;
-    -webkit-background-clip: text;
-} */
   color: #fe320a;
   margin-top: 100px;
 }
@@ -262,7 +257,6 @@ h5 {
 .page4 {
   height: 105vh;
   width: 100%;
-  /* background-color: #EFEAE3; */
 }
 
 #footer {
@@ -274,7 +268,6 @@ h5 {
   z-index: 9;
   bottom: 0;
   display: flex;
-  /* align-items: flex-end; */
   justify-content: flex-end;
   flex-direction: column;
   padding: 1vw 3vw;
@@ -291,16 +284,6 @@ h5 {
   border-top: 1px solid #dadada;
   height: 10vh;
   width: 100%;
-}
-
-#full-scr {
-  height: 100vh;
-  width: 100%;
-  background-color: #00000070;
-  position: fixed;
-  z-index: 99;
-  top: -100%;
-  transition: all ease 0.5s;
 }
 
 #full-div1 {
@@ -321,7 +304,6 @@ h5 {
   .navbar {
     padding: 8vw 5vw;
     background-color: #efeae3;
-    /* padding: 0 5vw; */
   }
 
   .navbar img {
@@ -346,7 +328,6 @@ h5 {
   .center {
     height: 62vh;
     width: 100%;
-    /* background-color: orange; */
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
@@ -409,7 +390,6 @@ h5 {
 
   .moving h1 {
     font-size: 15vw;
-    /* background-color: lightblue; */
     display: inline-block;
   }
 
@@ -425,7 +405,6 @@ h5 {
   .page2-bottom {
     height: 90vh;
     width: 100%;
-    /* background-color: aliceblue; */
     padding: 10vw 4vw;
     display: flex;
     align-items: flex-start;
@@ -443,7 +422,6 @@ h5 {
 
   .image {
     width: 70%;
-    /* background-color: aqua; */
   }
 
   .image img {
@@ -676,7 +654,6 @@ h5 {
   padding: 8px;
 }
 
-/* Media queries for tablets */
 @media (max-width: 1024px) {
   .navbar img {
     width: 70px;
@@ -712,7 +689,6 @@ h5 {
 
 }
 
-/* Media queries for mobile */
 @media (max-width: 768px) {
   .nav-btns {
     display: none;
@@ -750,7 +726,7 @@ h5 {
   
 }
 
-/* Smaller mobile devices */
+
 @media (max-width: 480px) {
   .right h1 {
     font-size: 12vw;
@@ -774,7 +750,35 @@ h5 {
     right:140px;
     margin-bottom: 370px;
   }
+
+  .page2 .cir {
+    width: 60vw;
+    height: 50vw;
+    background: linear-gradient(to top right, #ff2d03, #ff5c0b);
+    position: absolute;
+    border-radius: 50%;
+    left: 25%;
+    top: 45%;
+    filter: blur(20px);
+    animation-name: movee;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    z-index: 5;
+  }
   
+  @keyframes movee {
+    from {
+      filter: blur(20px);
+      transform: translate(10%, -10%) skew(0);
+    }
+  
+    to {
+      filter: blur(30px);
+      transform: translate(-10%, 10%) skew(-12deg);
+    }
+  }
 }
 section {
   background-color: black;
@@ -790,7 +794,6 @@ section {
   background-color: black;
   position: relative;
   bottom: 10px;
-  /* left: 50px; */
   text-align: center;
 }
 .contshaurya p {
@@ -806,7 +809,6 @@ section {
   background-size: cover;
 }
 
-/* Updated style.css */
 
 .image img {
   width: 100%;
@@ -846,7 +848,6 @@ section {
 
 @media (max-width: 480px) {
   .page2-bottom h1 {
-    font-size: 1em;
     line-height: 1.4em;
   }
 
@@ -854,8 +855,6 @@ section {
     max-width: 250px;
   }
 }
-
-/* cursor */
 
 .circ {
   height: 24px;
@@ -866,10 +865,10 @@ section {
   top: 0;
   left: 0;
   pointer-events: none;
-  z-index: 99999999; /* so that it stays on top of all other elements */
+  z-index: 9999; 
 }
 
-/* hamburger */
+
 
 .hamburger {
   display: none;
@@ -919,48 +918,44 @@ section {
   }
 }
 
-/* Default style for slider headings */
 .swiper-slide .pic {
-  font-size: 2vw; /* Default size */
+  font-size: 2vw; 
 }
 
-/* Medium screens (tablets and small desktops) */
+
 @media (max-width: 768px) {
   .swiper-slide .pic {
-    font-size: 3vw; /* Increase heading size */
+    font-size: 3vw; 
   }
 }
 
-/* Small screens (phones) */
 @media (max-width: 480px) {
   .swiper-slide .pic {
-    font-size: 4vw; /* Further increase heading size */
+    font-size: 4vw; 
   }
 }
-/* image  */
 
-/* Center picture and content for smaller screens */
 @media (max-width: 768px) {
   .page2-bottom {
-    flex-direction: column; /* Stack text and image vertically */
+    flex-direction: column;
     text-align: center;
-    align-items: center; /* Center all child elements */
+    align-items: center; 
   }
 
   .page2-bottom h1 {
-    font-size: 1.5em; /* Adjust text size for readability */
+    font-size: 1.5em; 
     line-height: 1.6em;
-    padding: 0 10px; /* Add padding for spacing */
+    padding: 0 10px; 
   }
 
   .image {
-    width: 80%; /* Adjust image container width */
-    margin: 0 auto; /* Center the container */
+    width: 80%; 
+    margin: 0 auto; 
   }
 
   .image img {
     max-width: 100%;
-    border-radius: 10px; /* Ensure consistent style */
+    border-radius: 10px;
   }
 
   #footer {
@@ -1023,7 +1018,7 @@ section {
   }
 
   .page3 {
-    padding-top: 5rem; /* Increase space above the My Interest section */
+    padding-top: 5rem; 
   }
 
   .left h3 {
@@ -1059,10 +1054,8 @@ section {
 
 }
 
-/* Adding a media query to improve the layout for smaller devices */
 
 @media screen and (max-width: 768px) {
-  /* Ensuring the sections stack vertically */
   .page-2-bottom {
     display: block;
     margin: 0 auto;
@@ -1075,7 +1068,6 @@ section {
     width: 100%;
   }
 
-  /* Add spacing to prevent overlap */
   .page-2-bottom {
     margin-bottom: 20px;
   }
@@ -1295,6 +1287,8 @@ section {
   }
 
 
+
+
 }
 
 #full-scr {
@@ -1310,13 +1304,14 @@ section {
 .loader {
   height: 100%;
   width: 100%;
-  background-color: #000; /* Black background during load */
+  background-color: #000; 
   position: fixed;
   z-index: 999;
   top: 0;
-  opacity: 1; /* Fully visible initially */
+  opacity: 1;
   transition: opacity 0.7s ease, top 0.7s ease;
-}}
+}
+}
 
 
 @media (max-width: 360px) {
@@ -1392,7 +1387,6 @@ section {
   left: -100%;
   width: 100%;
   height: 3px;
-  /* background: #fff; */;
   background: linear-gradient(to right, #FE310B, #FE310B);
   bottom: 0;
   transition: left 0.3s ease;
@@ -1522,4 +1516,45 @@ section {
   .contact-links li {
     font-size: 5vw;
   }
+  .page2 .cir {
+    width: 60vw;
+    height: 50vw;
+    background: linear-gradient(to top right, #ff2d03, #ff5c0b);
+    position: absolute;
+    border-radius: 50%;
+    left: 25%;
+    top: 45%;
+    filter: blur(20px);
+    animation-name: movee;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    z-index: 5;
+  }
+  
+  @keyframes movee {
+    from {
+      filter: blur(20px);
+      transform: translate(10%, -10%) skew(0);
+    }
+  
+    to {
+      filter: blur(30px);
+      transform: translate(-10%, 10%) skew(-12deg);
+    }
+  }
+}
+
+.hover-video {
+  position: fixed;
+  width: 300px; /* Adjust size as needed */
+  height: auto;
+  z-index: 1000;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  border-radius: 10px;
+  overflow: hidden;
 }

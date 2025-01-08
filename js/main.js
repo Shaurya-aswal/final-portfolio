@@ -82,3 +82,78 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+document.addEventListener("DOMContentLoaded", function () {
+    const projects = document.querySelectorAll(".project");
+    const hoverVideo = document.createElement("video");
+    hoverVideo.classList.add("hover-video");
+    hoverVideo.setAttribute("autoplay", true);
+    hoverVideo.setAttribute("loop", true);
+    hoverVideo.setAttribute("muted", true);
+    document.body.appendChild(hoverVideo);
+  
+    let activeProject = null;
+  
+    // Function to check if the device is a tablet or phone
+    function isMobileOrTablet() {
+      return window.innerWidth <= 1024; // Adjust breakpoint as needed
+    }
+  
+    // Track cursor position (for desktop only)
+    if (!isMobileOrTablet()) {
+      document.addEventListener("mousemove", function (e) {
+        if (activeProject) {
+          const x = e.clientX;
+          const y = e.clientY;
+          hoverVideo.style.left = `${x}px`;
+          hoverVideo.style.top = `${y}px`;
+        }
+      });
+    }
+  
+    // Handle project clicks
+    projects.forEach((project) => {
+      project.addEventListener("click", function (e) {
+        // Remove active class from all other projects
+        projects.forEach((p) => p.classList.remove("active"));
+  
+        // Add active class to the clicked project
+        this.classList.add("active");
+        activeProject = this;
+  
+        // Set hover video source (for desktop only)
+        if (!isMobileOrTablet()) {
+          const videoUrl = this.getAttribute("data-video-url");
+          hoverVideo.setAttribute("src", videoUrl);
+  
+          // Position hover video at cursor location
+          const x = e.clientX;
+          const y = e.clientY;
+          hoverVideo.style.left = `${x}px`;
+          hoverVideo.style.top = `${y}px`;
+          hoverVideo.style.opacity = "1";
+          hoverVideo.style.transform = "translate(-50%, -50%) scale(1)";
+        }
+  
+        // Open GitHub repository (for tablets and phones only)
+        if (isMobileOrTablet()) {
+          const githubUrl = this.getAttribute("data-github-url");
+          if (githubUrl) {
+            window.open(githubUrl, "_blank");
+          }
+        }
+      });
+    });
+  
+    // Close hover video when clicking outside (for desktop only)
+    if (!isMobileOrTablet()) {
+      document.addEventListener("click", function (e) {
+        if (!e.target.closest(".project")) {
+          projects.forEach((p) => p.classList.remove("active"));
+          hoverVideo.style.opacity = "0";
+          hoverVideo.style.transform = "translate(-50%, -50%) scale(0.8)";
+          hoverVideo.removeAttribute("src"); // Stop the video
+          activeProject = null;
+        }
+      });
+    }
+  });
