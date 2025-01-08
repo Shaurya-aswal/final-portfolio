@@ -705,6 +705,11 @@ h5 {
   .custom-cursor{
     opacity: 0;
   }
+
+  #footer h1 {
+    margin-bottom: 70px;
+  }
+
 }
 
 /* Media queries for mobile */
@@ -1000,7 +1005,6 @@ section {
   .hamburger {
     margin-top: 10px;
   }
-  
 }
 
 @media (max-width: 600px) {
@@ -1181,7 +1185,11 @@ section {
   .hamburger {
     margin-top: 10px;
   }
-  
+
+  #footer h1 {
+     margin-bottom: 80px;
+     margin-left: 10px;
+  }
 
   }
 
@@ -1319,6 +1327,7 @@ section {
   .hamburger {
     margin-top: 10px;
   }
+
 }
 
 @media (max-width: 416px) {
@@ -1481,6 +1490,11 @@ section {
   .custom-cursor{
     opacity: 0;
   }
+
+  #footer h1 {
+    margin-bottom: 50px;
+    margin-left: 20px;
+  }
 }
 
 .page5 h1 {
@@ -1504,3 +1518,8 @@ section {
 }
 
 
+@media (max-width: 450px){
+  .contact-links li {
+    font-size: 5vw;
+  }
+}
