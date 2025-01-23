@@ -1,12 +1,12 @@
 @font-face {
   font-family: hex;
-  src: url(assest/font/NeueHaasDisplayMediu.ttf);
+  src: url(src/font/NeueHaasDisplayMediu.ttf);
 }
 
 @font-face {
   font-family: hex;
   font-weight: 100;
-  src: url(assest/font/NeueHaasDisplayLight.ttf);
+  src: url(src/font/NeueHaasDisplayLight.ttf);
 }
 
 body {
@@ -91,6 +91,7 @@ body {
   color: black;
   position: relative;
   z-index: 9;
+  cursor: none;
 }
 
 .nav-btns h4:hover a {
