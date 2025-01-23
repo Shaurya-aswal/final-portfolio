@@ -1351,7 +1351,7 @@ section {
   display: grid;
   grid-template-columns: 100px 1fr 200px;
   align-items: center;
-  cursor: pointer;
+  cursor: none;
   transition: background-color 0.3s ease;
 }
 
