@@ -580,6 +580,7 @@ h5 {
   text-align: center;
   padding: 20px;
   border-radius: 8px;
+  cursor: none;
 }
 
 .contact-links h2 {
@@ -610,6 +611,7 @@ h5 {
   align-items: center;
   gap: 8px;
   transition: color 0.3s ease;
+  cursor: none;
 }
 
 .contact-links a:hover {
@@ -796,17 +798,44 @@ section {
   position: relative;
   bottom: 10px;
   text-align: center;
+  display: flex-box;
+  cursor: none;
 }
 .contshaurya p {
   padding-top: 14px;
 }
+
+.contshaurya {
+  transition: all 0.3s ease;
+}
+
+@keyframes hoverEffect {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    transform: scale(1.15);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.contshaurya:hover {
+  color: chocolate;
+  animation: hoverEffect 0.6s ease-in-out forwards;
+}
+
 .mac {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 #footer {
-  background-image: url(assest/toset.png);
+  background-image: url(src/image/toset.png);
   background-size: cover;
 }
 
@@ -1175,6 +1204,8 @@ section {
     margin-bottom: 370px;
   }
 
+  
+
   .hamburger {
     margin-top: 10px;
   }
@@ -1272,6 +1303,7 @@ section {
     bottom: 0;
     right:115px;
     margin-bottom: 340px;
+
 }
 
 @media (max-width: 480px) {
@@ -1286,9 +1318,6 @@ section {
   .contact-links li {
     font-size: 4vw;
   }
-
-
-
 
 }
 
@@ -1559,3 +1588,4 @@ section {
   border-radius: 10px;
   overflow: hidden;
 }
+
